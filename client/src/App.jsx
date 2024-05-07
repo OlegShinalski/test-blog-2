@@ -3,7 +3,6 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Posts from "./pages/Posts";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Write from "./pages/Write";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import "./style.scss";
@@ -29,19 +28,27 @@ const router = createBrowserRouter([
         path: "/",
         element: <Posts />,
       },
-      {
-        path: "/write",
-        element: <Write />,
-      },
     ],
   },
   {
     path: "/login",
-    element: <Login />,
+    element: (
+      <>
+        <Navbar />
+        <Login />
+        <Footer />
+      </>
+    ),
   },
   {
     path: "/register",
-    element: <Register />,
+    element: (
+      <>
+        <Navbar />
+        <Register />
+        <Footer />
+      </>
+    ),
   },
 ]);
 

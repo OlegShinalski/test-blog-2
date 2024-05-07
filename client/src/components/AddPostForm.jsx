@@ -13,7 +13,6 @@ export default function AddPostForm({ addNewPost }) {
   };
 
   const handleAddNewPost = () => {
-    console.log(JSON.stringify(newPost, null, 2));
     if (!newPost.title.trim() || !newPost.content.trim()) return;
     newPost.userId = currentUserId;
     addNewPost(newPost);
