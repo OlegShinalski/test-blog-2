@@ -18,6 +18,11 @@ router.get("/users", (req, res) => {
   res.json(users);
 });
 
+const userWithoutPassword = (user) => {
+  const { password, ...other } = user;
+  return other;
+};
+
 // Register new user
 router.post("/register", (req, res) => {
   const { username, email, password } = req.body;
@@ -46,14 +51,12 @@ router.post("/login", (req, res) => {
 
   const token = jwt.sign({ id: user.id }, "jwtkey");
 
-  // Remove the password from the user data
-  const { removed_password, ...other } = user;
   res
     .cookie("access_token", token, {
       httpOnly: true,
     })
     .status(200)
-    .json(other);
+    .json(userWithoutPassword(user));
   console.log(`Logged in user ${user.username}`)
 });
 

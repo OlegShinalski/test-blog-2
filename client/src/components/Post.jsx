@@ -25,6 +25,13 @@ export default function Post({
     setEditPost(null);
   };
 
+  const handleDelete = (postId) => {
+    const confirmed = window.confirm('Are you sure you want to delete this post?');
+    if (confirmed) {
+      deletePost(postId);
+    }
+  };
+
   return (
     <div className="post">
       {editPost && editPost.id === post.id ? (
@@ -58,7 +65,7 @@ export default function Post({
           {isCurrentUserPost && (
             <>
               <button onClick={() => handleEdit(post)}>Edit</button>
-              <button onClick={() => deletePost(post.id)}>Delete</button>
+              <button onClick={() => handleDelete(post.id)}>Delete</button>
             </>
           )}
         </div>
