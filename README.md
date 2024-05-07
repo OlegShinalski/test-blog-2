@@ -9,17 +9,18 @@ Go to the server directory
 enter "node server.js"
 
 # Currect functionality
-Currently all blogs are showed (without any filering and pagination).
-Only own blogs could be edited / deleted (even in previous sessions, each post has userId field).
+Currently all blogs are showed (without any filtering and pagination).
+Only own blogs could be edited / deleted. 
+In case You are not logged in, you could only see, but not create posts.
 Empty posts are not saved.
-
-# New user's registration : 
-Go to the Register, enter username and password. 
-If such user already exists, error message displayed.
 
 # Logging in :
 Go to the Login menu item, fill username and password
 If username or password are incorrect - error is displayed.
+
+# New user's registration : 
+Go to the Register, enter username and password. 
+If such user already exists, error message is displayed.
 
 Predefined users : 
   username: "oleg",
